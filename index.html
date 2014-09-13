@@ -105,26 +105,29 @@
           <input type="hidden" name="longitude" id="longitude" value="" />
           <input type="hidden" name="accountIdentity" id="accountIdentity" value="" />
 
+<div class="row">
           <div class="col-xs-4 form-group">
-            <label for="postalCode">Postnummer</label><input type="text" class="form-control" id="postalCode" name="postalCode">
+            <label for="postalCode">Postnummer</label><input type="number" class="form-control" id="postalCode" name="postalCode">
           </div>
 
           <div class="col-xs-8 form-group">
             <label for="postalTown">Postort</label><input type="text" class="form-control" id="postalTown" name="postalTown">
           </div>
-
+</div>
+<div class="row">
           <div class="col-xs-12 form-group">
-            <label for="streetName">Gatnamn</label><input type="text" class="form-control" id="streetName" name="streetName">
+            <label for="streetName">Gatunamn</label><input type="text" class="form-control" id="streetName" name="streetName">
           </div>
-
+</div>
+<div class="row">
           <div class="col-xs-6 form-group">
-            <label for="houseNumber">Husnummer</label><input type="text" class="form-control" id="houseNumber" name="houseNumber">
+            <label for="houseNumber">Husnummer</label><input type="number" class="form-control" id="houseNumber" name="houseNumber">
           </div>
           <div class="col-xs-6 form-group">
             <label for="houseName">Uppgång</label><input type="text" class="form-control" id="houseName" name="houseName">
           </div>
-
-          <button type="submit" class="btn btn-primary btn-block">Registrera</button>
+</div>
+          <button type="submit" class="btn btn-lg btn-primary btn-block">Registrera</button>
 
           <h2>Din plats</h2>
           <div id="map"></div>
@@ -148,46 +151,6 @@ if($.cookie('insamlingsapp-uuid') != undefined) {
   $('#account').show();
   $('#report').hide();
 };
-
-
-
-
-
-function locate() {
-  var map = L.map('map');
-
-  L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    id: 'examples.map-i86knfo3'
-  }).addTo(map);
-
-  map.on('locationfound', onLocationFound);
-  map.on('locationerror', onLocationError);
-
-  map.locate({setView: true, maxZoom: 16});
-}
-
-function onLocationFound(e) {
-  var radius = e.accuracy / 2;
-
-  L.marker(e.latlng).addTo(map)
-  .bindPopup("Din plats").openPopup();
-
-  L.circle(e.latlng, radius).addTo(map);
-
-  $("#latitude").val(e.latlng.lat);
-  $("#longitude").val(e.latlng.lng);
-  $("#accuracy").val(e.accuracy);
-
-}
-
-function onLocationError(e) {
-  alert(e.message);
-}
-
 
       </script>
     </div>
