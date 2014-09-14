@@ -44,7 +44,7 @@
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-      <li><a href="#" class="glyphicon glyphicon-chevron-right"> Om</a></li>
+      <li><a href="#" data-toggle="modal" data-target="#aboutmodal" class="glyphicon glyphicon-chevron-right"> Om</a></li>
       <li><a href="#" class="glyphicon glyphicon-chevron-right"> Statistik</a></li>
       <li><a href="#" class="glyphicon glyphicon-chevron-right"> Konto</a></li>
     </ul>
@@ -122,10 +122,52 @@
           <div id="map"></div>
         </div>
       </div>
-
     </form>
-
   </div>
+
+  <!-- Modal about -->
+  <div class="modal fade" id="aboutmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
+          <h4 class="modal-title" id="myModalLabel">Om insamlingsappen</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+          Visste du att information om adresser och postnummer inte finns fritt tillgängliga? Det ställer till det för de som behöver korrekt adressinformation för sina tjänster men inte kan betala 40 000 kronor om året för att få tillgång till informationen.</p>
+          <p>Vi behöver din hjälp! Genom att använda Insamlingsappen kan du bidra med information om postnummer, adresser och deras platser. Samtidigt bidrar du till att visa för politker och andra att affärsmodellen för postnummer är förlegad och behöver ändras. I andra länder har det visat sig att nyttan för samhället blir mycket större med fri adressinformation. Tillsammans kan vi bygga ett nytt postnummersystem.</p>
+          <h2>Hur du använder Insamlingsappen</h2>
+          <p>När du befinner dig vid en adress kan du starta appen, fylla i information om vilken adress och postnummer du befinner dig vid. Informationen sparas i vår databas och är fritt tillgänglig för alla. Det gör inget om du inte kan den fullständiga postadressen, vi har nästan lika mycket nytta av ett ensamt husnummer, gatunamn, postort, osv. Varje bit information är värdefull.</p>
+          <h2>Har du tillgång till koordinatsatta adressuppgifter?</h2>
+          <p>Kontakta oss gärna om du har tillgång till ett register med koordinatsatta postadresser så importerar vi dem till applikationen. <a href="mailto:postnummeruppror@gmail.com">postnummeruppror@gmail.com</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal about -->
+  <div class="modal fade" id="accountmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
+          <h4 class="modal-title" id="myModalLabel">Konto</h4>
+        </div>
+        <div class="modal-body">
+          <p>PC LOAD LETTER</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script>
 
