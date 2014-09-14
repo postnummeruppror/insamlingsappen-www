@@ -16,10 +16,43 @@ input {
 }
 
 .navbar-toggle {
-  background-color: #fff;
+  background-color: #111;
   border:none;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #3276b1;
+  background-color: #fff;
+}
+
+.navbar-default {
+  border: none;
+}
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #111;
+  color: #fff;
+}
+
+body {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-nav {
+  margin: 3px -15px 3px -15px;
+}
+
+.nav>li {
+  border-bottom: solid 1px #ccc;
+}
+
+.navbar-default .navbar-brand {
+  color: #aaa;
+}
+
+#report, #account {
+  margin-top: 10px;
+
 }
