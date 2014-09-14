@@ -9,7 +9,17 @@ h2 {
 #map {
   width: 100%;
   height: 150px;
+  margin-top: 10px;
 }
 input {
 -webkit-user-select: auto;
+}
+
+.navbar-toggle {
+  background-color: #fff;
+  border:none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #3276b1;
 }
