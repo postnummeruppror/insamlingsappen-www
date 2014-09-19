@@ -23,10 +23,12 @@ $(document).ready(function() {
 });
 
 
+var map;
+
 function locate() {
 
 $("#postalCode").focus();
-  var map = L.map('map');
+  map = L.map('map');
 
 
   new L.TileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
@@ -48,8 +50,8 @@ function onLocationFound(e) {
   $("#accuracy").val(e.accuracy);
 
   var radius = e.accuracy;
-  new L.Marker(e.latlng).addTo(map).bindPopup("Din plats").openPopup();
-  new L.Circle(e.latlng, radius).addTo(map);
+  L.marker(e.latlng).addTo(map).bindPopup("Din plats").openPopup();
+  L.circle(e.latlng, radius).addTo(map);
 
 }
 
