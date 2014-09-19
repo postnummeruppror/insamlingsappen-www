@@ -53,6 +53,8 @@ function onLocationFound(e) {
   L.marker(e.latlng).addTo(map).bindPopup("Din plats").openPopup();
   L.circle(e.latlng, radius).addTo(map);
 
+  document.getElementById("knappen").disabled=false;
+
 }
 
 function onLocationError(e) {
