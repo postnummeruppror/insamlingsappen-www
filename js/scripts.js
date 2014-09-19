@@ -28,12 +28,11 @@ function locate() {
 $("#postalCode").focus();
   var map = L.map('map');
 
-  L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    id: 'examples.map-i86knfo3'
+
+  new L.TileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+    subdomains: "abc",
+    attribution: 'Kartdata och kartbilder från <a href="http://www.openstreetmap.se">OpenStreetMap Sverige</a>. Kart-API från <a href="http://leafletjs.org">Leaflet</a>.',
+    maxZoom: 18
   }).addTo(map);
 
   map.on('locationfound', onLocationFound);
