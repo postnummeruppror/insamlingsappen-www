@@ -48,8 +48,8 @@ function onLocationFound(e) {
   $("#accuracy").val(e.accuracy);
 
   var radius = e.accuracy / 2;
-  L.marker(e.latlng).addTo(map).bindPopup("Din plats").openPopup();
-  L.circle(e.latlng, radius).addTo(map);
+  new L.Marker(e.latlng).addTo(map).bindPopup("Din plats").openPopup();
+  new L.Circle(e.latlng, radius).addTo(map);
 
 }
 
