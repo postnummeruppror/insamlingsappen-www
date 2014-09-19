@@ -3,11 +3,16 @@ $(document).ready(function() {
 
   $( "#account form" ).submit(function( event ) {
     event.preventDefault();
-    var posting = $.post( "http://insamling.postnummeruppror.nu/api/0.0.4/account/set", $("#account form").serializeJSON() );
-    posting.done(function( data ) {
-      alert("Konto skapat!");
-      location.reload();
-    });
+    if (! $( "#acceptingCcZero" ).prop('checked')) {
+      alert('Du måste kryssa i rutan om att släppa dina rapporter fria.');
+      return;
+    } else {
+      var posting = $.post( "http://insamling.postnummeruppror.nu/api/0.0.4/account/set", $("#account form").serializeJSON() );
+      posting.done(function( data ) {
+        alert("Konto skapat!");
+        location.reload();
+      });
+    }
   });
 
 
