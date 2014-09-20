@@ -19,10 +19,10 @@ $(document).ready(function() {
   $( "#report form" ).submit(function( event ) {
     event.preventDefault();
 
-    //alert($("#report form").serializeJSON());
+    //Debug alert($("#report form").serializeJSON());
     //return;
 
-    var posting = $.post( "http://insamling.postnummeruppror.nu/api/0.0.4/location_sample/create", $("#report form").serializeJSON() );
+    var posting = $.post( "http://insamling.postnummeruppror.nu/api/0.0.5/location_sample/create", $("#report form").serializeJSON() );
     posting.done(function( data ) {
       alert("Tack för din rapport!");
       location.reload();
@@ -66,10 +66,10 @@ function locate() {
 
 
 function clear_location() {
-  $("#latitude").val("");
-  $("#longitude").val("");
-  $("#accuracy").val("");
-  $("#provider").val("none");
+  $("#coordinate[latitude]").val("");
+  $("#coordinate[longitude]").val("");
+  $("#coordinate[accuracy]").val("");
+  $("#coordinate[provider]").val("none");
   $("#map").hide();
   $("#btnenabletext").hide();
   document.getElementById("knappen").disabled=false;
@@ -77,9 +77,9 @@ function clear_location() {
 
 
 function onLocationFound(e) {
-  $("#latitude").val(e.latlng.lat);
-  $("#longitude").val(e.latlng.lng);
-  $("#accuracy").val(e.accuracy);
+  $("#coordinate[latitude]").val(e.latlng.lat);
+  $("#coordinate[longitude]").val(e.latlng.lng);
+  $("#coordinate[accuracy]").val(e.accuracy);
   var radius = e.accuracy;
   L.marker(e.latlng).addTo(map).bindPopup("Din plats").openPopup();
   L.circle(e.latlng, radius).addTo(map);

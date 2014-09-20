@@ -83,11 +83,11 @@
     <form role="form" method="post">
       <input type="hidden" name="application" id="application" value="insamlingsappen-www" />
       <input type="hidden" name="applicationVersion" id="applicationVersion" value="1" />
-      <input type="hidden" name="provider" id="provider" value="gps" />
-      <input type="hidden" name="accuracy" id="accuracy" value="" />
-      <input type="hidden" name="latitude" id="latitude" value="" />
-      <input type="hidden" name="longitude" id="longitude" value="" />
       <input type="hidden" name="accountIdentity" id="accountIdentity" value="" />
+      <input type="hidden" id="coordinate[provider]"  name="coordinate[provider]" value="gps" />
+      <input type="hidden" id="coordinate[accuracy]"  name="coordinate[accuracy]" value="" />
+      <input type="hidden" id="coordinate[latitude]"  name="coordinate[latitude]" value="" />
+      <input type="hidden" id="coordinate[longitude]" name="coordinate[longitude]" value="" />
 
       <div class="row">
         <div class="col-xs-12 form-group">
@@ -107,23 +107,23 @@
       </div>
       <div class="row">
         <div class="col-xs-4 form-group">
-          <label for="postalCode">Postnummer</label><input type="number" class="form-control" id="postalCode" name="postalCode">
+          <label for="postalAddress[postalCode]">Postnummer</label><input type="number" class="form-control" id="postalAddress[postalCode]" name="postalAddress[postalCode]">
         </div>
         <div class="col-xs-8 form-group">
-          <label for="postalTown">Postort</label><input type="text" class="form-control" id="postalTown" name="postalTown">
+          <label for="postalAddress[postalTown]">Postort</label><input type="text" class="form-control" id="postalAddress[postalTown]" name="postalAddress[postalTown]">
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 form-group">
-          <label for="streetName">Gatunamn</label><input type="text" class="form-control" id="streetName" name="streetName">
+          <label for="postalAddress[streetName]">Gatunamn</label><input type="text" class="form-control" id="postalAddress[streetName]" name="postalAddress[streetName]">
         </div>
       </div>
       <div class="row">
         <div class="col-xs-6 form-group">
-          <label for="houseNumber">Husnummer</label><input type="number" class="form-control" id="houseNumber" name="houseNumber">
+          <label for="postalAddress[houseNumber]">Husnummer</label><input type="number" class="form-control" id="postalAddress[houseNumber]" name="postalAddress[houseNumber]">
         </div>
         <div class="col-xs-6 form-group">
-          <label for="houseName">Uppgång</label><input type="text" class="form-control" id="houseName" name="houseName">
+          <label for="postalAddress[houseName]">Uppgång</label><input type="text" class="form-control" id="postalAddress[houseName]" name="postalAddress[houseName]">
         </div>
       </div>
       <div class="row">
