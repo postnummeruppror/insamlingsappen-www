@@ -9,21 +9,16 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="js/leaflet-0.7.3/leaflet.css" />
 <link href="css/style.css" rel="stylesheet">
-
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
   <![endif]-->
-
-<!-- Fav and touch icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
 <link rel="shortcut icon" href="img/favicon.png">
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
-
-
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
@@ -53,7 +48,6 @@
   <div class="row clearfix">
     <div class="col-md-12 column" id="account">
       <p>Tack för att du vill hjälpa till. Skapa först ett konto genom att fylla i fälten nedan.</p>
-
       <form role="form" method="post" action="http://insamling.postnummeruppror.nu/api/0.0.4/account/set" >
         <input type="hidden" name="identity" id="identity" value="" />
         <div class="form-group">
@@ -96,6 +90,22 @@
       <input type="hidden" name="accountIdentity" id="accountIdentity" value="" />
 
       <div class="row">
+        <div class="col-xs-12 form-group">
+          <div class="radio">
+            <label>
+              <input type="radio" value="true" name="useLocation" id="useLocation" checked>
+              Använd position från din enhet för denna rapport.
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" value="false" name="useLocation" id="useLocation">
+              Använd inte position. Den här rapporten har inget att göra med platsen jag befinner mig på just nu.
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-xs-4 form-group">
           <label for="postalCode">Postnummer</label><input type="number" class="form-control" id="postalCode" name="postalCode">
         </div>
@@ -119,7 +129,7 @@
       <div class="row">
         <div class="col-xs-12">
           <button disabled id="knappen" type="submit" class="btn btn-lg btn-primary btn-block">Registrera</button>
-          <div>Knappen blir tillgänglig när vi hittat din position.</div>
+          <div id="btnenabletext">Knappen blir tillgänglig när vi hittat din position.</div>
           <div id="map"></div>
         </div>
       </div>

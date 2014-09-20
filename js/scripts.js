@@ -18,6 +18,10 @@ $(document).ready(function() {
 
   $( "#report form" ).submit(function( event ) {
     event.preventDefault();
+
+    //alert($("#report form").serializeJSON());
+    //return;
+
     var posting = $.post( "http://insamling.postnummeruppror.nu/api/0.0.4/location_sample/create", $("#report form").serializeJSON() );
     posting.done(function( data ) {
       alert("Tack för din rapport!");
@@ -25,17 +29,30 @@ $(document).ready(function() {
     });
   });
 
+
+  $(document).on('change', 'input:radio[id="useLocation"]', function (event) {
+    if (this.value == 'true') {
+      locate();
+    } else {
+      clear_location();
+    }
+  });
+
+
 });
+
 
 
 var map;
 
+
 function locate() {
 
-$("#postalCode").focus();
+  document.getElementById("knappen").disabled=true;
+  $("#map").show();
+  $("#btnenabletext").show();
+
   map = L.map('map');
-
-
   new L.TileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
     subdomains: "abc",
     attribution: 'Kartdata och kartbilder från <a href="http://www.openstreetmap.se">OpenStreetMap Sverige</a>. Kart-API från <a href="http://leafletjs.org">Leaflet</a>.',
@@ -44,26 +61,35 @@ $("#postalCode").focus();
 
   map.on('locationfound', onLocationFound);
   map.on('locationerror', onLocationError);
-
   map.locate({setView: true, maxZoom: 16});
 }
 
-function onLocationFound(e) {
 
+function clear_location() {
+  $("#latitude").val("");
+  $("#longitude").val("");
+  $("#accuracy").val("");
+  $("#provider").val("none");
+  $("#map").hide();
+  $("#btnenabletext").hide();
+  document.getElementById("knappen").disabled=false;
+}
+
+
+function onLocationFound(e) {
   $("#latitude").val(e.latlng.lat);
   $("#longitude").val(e.latlng.lng);
   $("#accuracy").val(e.accuracy);
-
   var radius = e.accuracy;
   L.marker(e.latlng).addTo(map).bindPopup("Din plats").openPopup();
   L.circle(e.latlng, radius).addTo(map);
-
   document.getElementById("knappen").disabled=false;
-
 }
+
 
 function onLocationError(e) {
   alert(e.message);
+  clear_location();
 }
 
 
