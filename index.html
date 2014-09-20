@@ -99,7 +99,7 @@
           </div>
           <div class="radio">
             <label>
-              <input type="radio" value="false" name="useLocation" id="useLocation">
+              <input type="radio" value="false" name="useLocation" id="doNotUseLocation">
               Använd inte position. Den här rapporten har inget att göra med platsen jag befinner mig på just nu.
             </label>
           </div>
@@ -181,6 +181,7 @@
 
 
   <script>
+
 
 if($.cookie('insamlingsapp-uuid') != undefined) {
   var uuid = $.cookie('insamlingsapp-uuid')
