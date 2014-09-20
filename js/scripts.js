@@ -1,5 +1,5 @@
-//var serverAddress = "insamling.postnummeruppror.nu";
-var serverAddress = "localhost:8080";
+var serverAddress = "insamling.postnummeruppror.nu";
+//var serverAddress = "localhost:8080";
 
 $(document).ready(function () {
 
