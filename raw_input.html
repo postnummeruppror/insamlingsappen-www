@@ -1,9 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Raw data input</title>
+  <meta charset="UTF-8"/>
 </head>
 <body>
+
+
+<label>Kontoidentitet<input type="text" id="accountIdentity"/></label><br/>
+<br/>
+<label>Postort<input type="text" id="postalAddress.postalTown"/></label><br/>
+<br/>
+<label>Latitud<input type="text" id="coordinate.latitude"/></label><br/>
+<label>Longitud<input type="text" id="coordinate.longitude"/> </label><br/>
+<label>Noggrannhet<input type="text" id="coordinate.accuracy" value="1000"/> </label><br/>
+<label>Källa<input type="text" id="coordinate.provider" value="ISBN 91-87760-00-2"/></label><br/>
+
+<button onclick="submit();">Submit</button>
+
+
+<script type="text/javascript">
+
+  var serverAddress = "insamling.postnummeruppror.nu";
+
+  function submit() {
+
+    var request = {
+      accountIdentity: document.getElementById('accountIdentity').value,
+      application: "insamlingsappen-www/postal town map input",
+      applicationVersion: "0.0.1",
+      postalAddress: {
+        postalTown : document.getElementById('postalAddress.postalTown').value
+      },
+      coordinate: {
+        latitude: parseFloat(document.getElementById('coordinate.latitude').value),
+        longitude: parseFloat(document.getElementById('coordinate.longitude').value),
+        accuracy: parseFloat(document.getElementById('coordinate.accuracy').value)
+      }
+    };
+
+    var requestJSON = JSON.stringify(request);
+
+    var posting = $.post("http://"+serverAddress+"/api/0.0.5/location_sample/create", requestJSON);
+    posting.done(function (data) {
+      document.getElementById('postalAddress.postalTown').value = "";
+      document.getElementById('coordinate.latitude').value = "";
+      document.getElementById('coordinate.longitude').value = "";
+    });
+
+
+  }
+
+</script>
 
 </body>
 </html>
