@@ -28,7 +28,7 @@ $(document).ready(function () {
     var requestObject = {
       accountIdentity: document.getElementById("accountIdentity").value,
       application: "insamlingsappen-www",
-      applicationVersion: "0.0.2",
+      applicationVersion: "0.0.3",
       postalAddress: {
         postalCode: document.getElementById("postalAddress[postalCode]").value,
         postalTown: document.getElementById("postalAddress[postalTown]").value,
@@ -57,7 +57,7 @@ $(document).ready(function () {
   });
 
 
-  $(document).on('change', 'input:radio[id="useLocation"]', function (event) {
+  $(document).on('change', 'input:radio[name="useLocation"]', function (event) {
     if (this.value == 'true') {
       locate();
     } else {
