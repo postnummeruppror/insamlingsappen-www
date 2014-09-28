@@ -20,6 +20,10 @@ input {
   border:none;
 }
 
+.navbar-collapse {
+  background-color: #d94a4d;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #fff;
 }
@@ -30,7 +34,7 @@ input {
 
 .navbar {
   margin-bottom: 0;
-  background-color: #111;
+  background-color: #d94a4d;
   color: #fff;
 }
 
@@ -41,18 +45,31 @@ body {
 }
 
 .navbar-nav {
-  margin: 3px -15px 3px -15px;
+  margin: 0 -15px 3px -15px;
 }
 
-.nav>li {
-  border-bottom: solid 1px #ccc;
+.nav>li a {
+  /* border-bottom: solid 1px #ccc; */
+  color: #fff;
 }
 
 .navbar-default .navbar-brand {
-  color: #aaa;
+  color: #fff;
+  padding:0;
 }
 
 #report, #account {
   margin-top: 10px;
+
+}
+
+@media(min-width:768px){
+  .navbar-nav {
+    margin: 0;
+  }
+
+  .navbar-nav li a {
+    color: #fff;
+  }
 
 }
