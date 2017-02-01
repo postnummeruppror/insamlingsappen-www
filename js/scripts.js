@@ -10,7 +10,7 @@ $(document).ready(function () {
       alert('Du måste kryssa i rutan om att släppa dina rapporter fria.');
       return;
     } else {
-      var posting = $.post("http://"+serverAddress+"/api/0.0.4/account/set", $("#account form").serializeJSON());
+      var posting = $.post("https://"+serverAddress+"/api/0.0.5/account/set", $("#account form").serializeJSON());
       posting.done(function (data) {
         alert("Konto skapat!");
         location.reload();
@@ -28,7 +28,7 @@ $(document).ready(function () {
     var requestObject = {
       accountIdentity: document.getElementById("accountIdentity").value,
       application: "insamlingsappen-www",
-      applicationVersion: "0.0.3",
+      applicationVersion: "0.0.4",
       postalAddress: {
         postalCode: document.getElementById("postalAddress[postalCode]").value,
         postalTown: document.getElementById("postalAddress[postalTown]").value,
@@ -49,7 +49,7 @@ $(document).ready(function () {
 
     var jsonRequest = JSON.stringify(requestObject);
 
-    var posting = $.post("http://"+serverAddress+"/api/0.0.5/location_sample/create", jsonRequest);
+    var posting = $.post("https://"+serverAddress+"/api/0.0.5/location_sample/create", jsonRequest);
     posting.done(function (data) {
       alert("Tack för din rapport!");
       location.reload();
@@ -79,9 +79,9 @@ function locate() {
   $("#btnenabletext").show();
 
   map = L.map('map');
-  new L.TileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+  new L.TileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
     subdomains: "abc",
-    attribution: 'Kartdata och kartbilder från <a href="http://www.openstreetmap.se">OpenStreetMap Sverige</a>. Kart-API från <a href="http://leafletjs.org">Leaflet</a>.',
+    attribution: 'Kartdata och kartbilder från <a href="https://www.openstreetmap.se">OpenStreetMap Sverige</a>. Kart-API från <a href="http://leafletjs.org">Leaflet</a>.',
     maxZoom: 18
   }).addTo(map);
 
