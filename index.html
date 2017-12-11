@@ -2,9 +2,11 @@
 <html lang="sv">
 <head>
 <meta charset="utf-8">
-<title>Insamlingsappen</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<title>Postnummer-insamling</title>
+<meta name="viewport" content = "width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Insamlingsappen fär postnummerupproret">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
 <meta name="author" content="">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="js/leaflet-0.7.3/leaflet.css" />
@@ -60,13 +62,13 @@
             </label>
           </div>
           <div class="form-group">
-            <label for="emailAddress">E-post</label><input type="text" class="form-control" id="emailAddress" name="emailAddress">
+            <label for="emailAddress">E-post</label><input autocomplete="email" required type="email" class="form-control" id="emailAddress" name="emailAddress">
           </div>
           <div class="form-group">
-            <label for="firstName">Förnamn</label><input type="text" class="form-control" id="firstName" name="firstName">
+            <label for="firstName">Förnamn</label><input autocomplete="given-name" required type="text" class="form-control" id="firstName" name="firstName">
           </div>
           <div class="form-group">
-            <label for="lastName">Efternamn</label><input type="text" class="form-control" id="lastName" name="lastName">
+            <label for="lastName">Efternamn</label><input autocomplete="family-name" required type="text" class="form-control" id="lastName" name="lastName">
           </div>
           <button type="submit" class="btn btn-primary btn-block">Skicka</button>
         </div>
@@ -109,15 +111,15 @@
       </div>
       <div class="row">
         <div class="col-xs-4 form-group">
-          <label for="postalAddress[postalCode]">Postnummer</label><input type="number" class="form-control" id="postalAddress[postalCode]" name="postalAddress[postalCode]">
+          <label for="postalAddress[postalCode]">Postnummer</label><input autocomplete="on" required size="5" min="10000" max="99999" type="number" class="form-control" id="postalAddress[postalCode]" name="postalAddress[postalCode]">
         </div>
         <div class="col-xs-8 form-group">
-          <label for="postalAddress[postalTown]">Postort</label><input type="text" class="form-control" id="postalAddress[postalTown]" name="postalAddress[postalTown]">
+          <label for="postalAddress[postalTown]">Postort</label><input autocomplete="on" required type="text" class="form-control" id="postalAddress[postalTown]" name="postalAddress[postalTown]">
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 form-group">
-          <label for="postalAddress[streetName]">Gatunamn</label><input type="text" class="form-control" id="postalAddress[streetName]" name="postalAddress[streetName]">
+          <label for="postalAddress[streetName]">Gatunamn</label><input autocomplete="on" type="text" class="form-control" id="postalAddress[streetName]" name="postalAddress[streetName]">
         </div>
       </div>
       <div class="row">
